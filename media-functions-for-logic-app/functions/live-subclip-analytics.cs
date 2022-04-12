@@ -148,6 +148,9 @@ namespace media_functions_for_logic_app
                 // find the Channel, Program and Asset
                 channelName = (string)data.channelName;
                 var channel = _context.Channels.Where(c => c.Name == channelName).FirstOrDefault();
+
+                log.Info($"Channels available: {string.Join(" - ", _context.Channels.ToList())}");
+
                 if (channel == null)
                 {
                     log.Info("Channel not found");
